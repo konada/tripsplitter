@@ -4,10 +4,24 @@ class TripsController < ApplicationController
   end
 
   def create
-    Trip.create(params[:trip])
+    @trip = Trip.create(trip_params)
+    render :new
   end
 
-  def show
-    @trip = Trip.find(params[:id])
+  private
+
+  def calculate_cost_per_person
+    CostPerPersonCalculator.new(self).call
+  end
+
+  def trip_params
+    params.require(:trip).permit(
+      :people_count,
+      :driver_included,
+      :trip_distance,
+      :fuel_cost,
+      :avg_consumption,
+      :tanking_cost
+    )
   end
 end

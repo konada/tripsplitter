@@ -1,1 +1,38 @@
-new.haml
+.container
+  .form-group.form-horizontal
+    = simple_form_for @trip, url: trip_path do |f|
+      %label
+        = t('.people_count')
+      = f.input :people_count, input_html: { min: 1 }, label: false, as: :integer
+      %label
+        = t('.driver_included')
+      = f.input :driver_included, label: false, as: :boolean
+      %label
+        = t('.trip_distance')
+      = f.input :trip_distance, input_html: { min: 1 }, label: false, as: :integer
+      %label
+        = t('.fuel_cost')
+      = f.input :fuel_cost, input_html: { min: 1 }, label: false, as: :decimal
+      %label
+        = t('.avg_consumption')
+      = f.input :avg_consumption, input_html: { min: 1 }, label: false, as: :decimal
+      %label
+        = t('.tanking_cost')
+      = f.input :tanking_cost, input_html: { min: 1 }, label: false, as: :decimal
+      = f.submit t('.submit')
+
+- if @trip.cost_per_person
+  .container
+    .form-group.form-horizontal
+      .card.card-inverse.card-success.text-xs-center
+        .card-block
+          %blockquote.card-blockquote
+            %p
+            %footer
+              Cost per person is:
+              = @trip.cost_per_person
+
+              - if @trip.driver_included?
+                = " - with driver costs included"
+              - else
+                = " - driver not included in costs"
