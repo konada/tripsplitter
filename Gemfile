@@ -26,6 +26,14 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Use haml for views
 gem 'haml', '~> 4.0'
+# Use simple form
+gem 'simple_form', '~> 3.3'
+# Bootstrap
+gem 'bootstrap', '~> 4.0.0.alpha6'
+# Tether
+gem 'rails-assets-tether', '>= 1.0.0'
+#sprockets - for bootstrap
+gem 'sprockets-rails', '~> 3.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
