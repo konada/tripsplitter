@@ -32,7 +32,7 @@
             %p
             %footer
               = t('.cost_per_person')
-              = @trip.cost_per_person
+              = number_with_precision(@trip.cost_per_person, precision: 2)
 
               - if @trip.driver_included?
                 = " - with driver costs included"

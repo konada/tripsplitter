@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20170306112414) do
     t.decimal  "fuel_cost"
     t.decimal  "avg_consumption"
     t.decimal  "tanking_cost"
-    t.decimal  "cost_per_person", scale: 2
+    t.decimal  "cost_per_person"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.string   "email"
