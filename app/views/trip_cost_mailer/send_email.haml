@@ -1,0 +1,34 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    .container
+      %h2 Thanks for using our app, #{@trip.email}!
+      .panel.panel-primary
+        .panel-heading
+          Here are the trip details:
+          %p
+        .panel-body
+          = I18n.t('.people_count')
+        = @trip.people_count
+        %p
+        - if @trip.driver_included?
+          = "Driver costs included"
+        - else
+          = "Driver not included in costs"
+        %p
+          = I18n.t('.trip_distance')
+        = @trip.trip_distance
+        %p
+          = I18n.t('.fuel_cost')
+        = @trip.fuel_cost
+        %p
+          = I18n.t('.avg_consumption')
+        = @trip.avg_consumption
+        %p
+          = I18n.t('.tanking_cost')
+        = @trip.tanking_cost
+        %p
+          = I18n.t('.cost_per_person')
+        = @trip.cost_per_person

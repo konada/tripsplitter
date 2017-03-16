@@ -19,6 +19,8 @@
       %label
         = t('.tanking_cost')
       = f.input :tanking_cost, input_html: { min: 1 }, label: false, as: :decimal
+      %label
+      = f.input :email, as: :string
       = f.submit t('.submit')
 
 - if @trip.cost_per_person
@@ -29,10 +31,11 @@
           %blockquote.card-blockquote
             %p
             %footer
-              Cost per person is:
+              = t('.cost_per_person')
               = @trip.cost_per_person
 
               - if @trip.driver_included?
                 = " - with driver costs included"
               - else
                 = " - driver not included in costs"
+

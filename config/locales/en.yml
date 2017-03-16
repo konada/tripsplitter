@@ -1,12 +1,25 @@
 en:
+  subject: Thank you for using Tripsplitter!
+  people_count: 'No of People: '
+  driver_included: 'Is Driver paying? '
+  trip_distance: 'Trip distance in km: '
+  fuel_cost: 'Fuel cost (per unit): '
+  avg_consumption: 'Average consumption per 100km: '
+  tanking_cost: 'Fuel invoice total: '
+  cost_per_person: 'Total cost of trip for one person is: '
+  submit: Calculate cost
+  notice: Cost was successfully calculated.
+  email: name@domain.com
   trips:
     new:
       people_count: No of People
       driver_included: Is Driver paying?
-      trip_distance: Trip distance in km?
+      trip_distance: Trip distance in km
       fuel_cost: Fuel cost (unit)
       avg_consumption: Average consumption per 100km
       tanking_cost: Fuel invoice total
       cost_per_person: Total cost of trip for one person is
       submit: Calculate cost
-      notice: Todo list was successfully created.
+      notice: Cost was successfully calculated.
+      email: name@domain.com
+      subject: Thank you for using Tripsplitter!
