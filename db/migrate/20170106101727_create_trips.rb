@@ -7,7 +7,7 @@ class CreateTrips < ActiveRecord::Migration[5.0]
       t.decimal :fuel_cost
       t.decimal :avg_consumption
       t.decimal :tanking_cost
-      t.decimal :cost_per_person, scale: 2
+      t.decimal :cost_per_person
 
       t.timestamps
     end

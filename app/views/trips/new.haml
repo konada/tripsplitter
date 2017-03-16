@@ -1,6 +1,6 @@
 .container
   .form-group.form-horizontal
-    = simple_form_for @trip, url: trip_path do |f|
+    = simple_form_for @trip, url: trips_path do |f|
       %label
         = t('.people_count')
       = f.input :people_count, input_html: { min: 1 }, label: false, as: :integer
@@ -21,7 +21,7 @@
       = f.input :tanking_cost, input_html: { min: 1 }, label: false, as: :decimal
       %label
       = f.input :email, as: :string
-      = f.submit t('.submit')
+      = f.submit t('.submit'), disabled: @trip.cost_per_person?
 
 - if @trip.cost_per_person
   .container
@@ -35,7 +35,9 @@
               = number_with_precision(@trip.cost_per_person, precision: 2)
 
               - if @trip.driver_included?
-                = " - with driver costs included"
+                = t('.driver_participation')
               - else
-                = " - driver not included in costs"
+                = t('.driver_free')
+  .container
+    = button_to "New Calculation" , new_trip_path, method: :get
 

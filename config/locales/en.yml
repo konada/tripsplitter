@@ -10,6 +10,8 @@ en:
   submit: Calculate cost
   notice: Cost was successfully calculated.
   email: name@domain.com
+  driver_participation: "Driver included in costs"
+  driver_free: "Driver not included in costs"
   trips:
     new:
       people_count: No of People
@@ -23,3 +25,5 @@ en:
       notice: Cost was successfully calculated.
       email: name@domain.com
       subject: Thank you for using Tripsplitter!
+      driver_participation: " - with driver costs included"
+      driver_free: " - driver not included in costs"

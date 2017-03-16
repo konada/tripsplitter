@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  resource :trip, only: [:new, :create]
+  resources :trips, only: [:new, :create]
   root 'trips#new'
 end

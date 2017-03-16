@@ -19,7 +19,7 @@ RSpec.describe TripCostMailer do
     end
 
     it 'renders the sender email' do
-      expect(message.from).to eq(['any_from_address@example.com'])
+      expect(message.from).to eq(['trip@tripsplitt.er'])
     end
   end
 end

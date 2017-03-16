@@ -14,9 +14,9 @@
         = @trip.people_count
         %p
         - if @trip.driver_included?
-          = "Driver costs included"
+          = I18n.t('driver_participation')
         - else
-          = "Driver not included in costs"
+          = I18n.t('driver_free')
         %p
           = I18n.t('.trip_distance')
         = @trip.trip_distance
