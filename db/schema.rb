@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170106101727) do
+ActiveRecord::Schema.define(version: 20170306112414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,9 +22,10 @@ ActiveRecord::Schema.define(version: 20170106101727) do
     t.decimal  "fuel_cost"
     t.decimal  "avg_consumption"
     t.decimal  "tanking_cost"
-    t.decimal  "cost_per_person"
+    t.decimal  "cost_per_person", scale: 2
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.string   "email"
   end
 
 end

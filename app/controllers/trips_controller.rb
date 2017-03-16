@@ -21,7 +21,8 @@ class TripsController < ApplicationController
       :trip_distance,
       :fuel_cost,
       :avg_consumption,
-      :tanking_cost
+      :tanking_cost,
+      :email
     )
   end
 end
