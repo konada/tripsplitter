@@ -3,6 +3,10 @@ class TripsController < ApplicationController
     @trip = Trip.new
   end
 
+  def index
+    @trips = current_user.trips
+  end
+
   def create
     @trip = Trip.create(trip_params)
     render :new
@@ -22,7 +26,9 @@ class TripsController < ApplicationController
       :fuel_cost,
       :avg_consumption,
       :tanking_cost,
-      :email
+      :email,
+      :trip_name,
+      :user_id
     )
   end
 end

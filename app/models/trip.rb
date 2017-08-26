@@ -5,6 +5,8 @@ class Trip < ApplicationRecord
   validates :avg_consumption, presence: true, if: ->(trip) { trip.fuel_cost || trip.trip_distance }
   validates_format_of :email,:with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, allow_blank: true
 
+  belongs_to :user, optional: true
+
   before_save :calculate_cost_per_person
   after_save :send_email
 

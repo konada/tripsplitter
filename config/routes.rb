@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  resources :trips, only: [:new, :create]
+  devise_for :users
+  resources :trips, only: [:new, :index, :create]
   root 'trips#new'
 end

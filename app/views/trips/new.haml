@@ -1,27 +1,30 @@
 .container
   .form-group.form-horizontal
     = simple_form_for @trip, url: trips_path do |f|
+      = f.hidden_field :user_id, value: current_user.try(:id)
       %label
-        = t('.people_count')
+      = f.input :trip_name, as: :string, input_html: { placeholder: t('.optional'), autofocus: true }
+      %label
+      = t('.people_count')
       = f.input :people_count, input_html: { min: 1 }, label: false, as: :integer
       %label
-        = t('.driver_included')
-      = f.input :driver_included, label: false, as: :boolean
+      = t('.driver_included')
+      = f.input :driver_included, class: 'cr-icon fa fa-check', label: false, as: :boolean
       %label
-        = t('.trip_distance')
+      = t('.trip_distance')
       = f.input :trip_distance, input_html: { min: 1 }, label: false, as: :integer
       %label
-        = t('.fuel_cost')
+      = t('.fuel_cost')
       = f.input :fuel_cost, input_html: { min: 1 }, label: false, as: :decimal
       %label
-        = t('.avg_consumption')
+      = t('.avg_consumption')
       = f.input :avg_consumption, input_html: { min: 1 }, label: false, as: :decimal
       %label
-        = t('.tanking_cost')
+      = t('.tanking_cost')
       = f.input :tanking_cost, input_html: { min: 1 }, label: false, as: :decimal
       %label
-      = f.input :email, as: :string
-      = f.submit t('.submit'), disabled: @trip.cost_per_person?
+        = f.input :email, as: :string, input_html: { placeholder: t('.optional'), autofocus: true }
+        = f.submit t('.submit'), class: 'btn btn-info calculate-btn', disabled: @trip.cost_per_person?
 
 - if @trip.cost_per_person
   .container
@@ -39,5 +42,9 @@
               - else
                 = t('.driver_free')
   .container
-    = button_to "New Calculation" , new_trip_path, method: :get
+    = button_to "New Calculation", new_trip_path, class: 'btn btn-info calculate-btn', method: :get
+    %br
+- if user_signed_in?
+  .container
+    = button_to "Show all my trips", trips_path, class: 'btn btn-info calculate-btn', method: :get
 

@@ -1,0 +1,29 @@
+- if user_signed_in?
+  - if @trips.present?
+    %table.table-striped.table-bordered
+      %tbody
+        %tr
+          %th= t('trip_name')
+          %th= t('people_count')
+          %th= t('driver_included')
+          %th= t('trip_distance')
+          %th= t('fuel_cost')
+          %th= t('avg_consumption')
+          %th= t('tanking_cost')
+          %th.b= t('.cost_per_person')
+          %th= t('email')
+        - @trips.each do |trip|
+          %tr
+            %td= trip.trip_name
+            %td= trip.people_count
+            %td= trip.driver_included
+            %td= trip.trip_distance
+            %td= trip.fuel_cost
+            %td= trip.avg_consumption
+            %td= trip.tanking_cost
+            %td= trip.cost_per_person
+            %td= trip.email
+  .container-fluid
+    %br
+    %br
+      = button_to "New Calculation", new_trip_path, class: 'btn btn-info calculate-btn', method: :get
