@@ -16,3 +16,8 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+$(document).ready(function(){
+  $("#jmbTrn").click(function(e){
+    $(this).hide();
+  });
+});

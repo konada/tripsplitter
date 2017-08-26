@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Tripsplitter</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Tripsplitter</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+
+<div class="container-narrow">
+
+ <div class="navbar-header">
+    <span class="btn btn-info"><%= link_to "Tripsplitter", root_path %></span>
+    <span>Tripsplitter: enjoy your common ride!</span>
+    <span><%= render 'layouts/user_header' %></span>
+  </div>
+
+  <hr />
+  <%= render partial: 'layouts/home' %>
+  <%= yield %>
+</div>
+</body>
 </html>
