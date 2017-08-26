@@ -13,8 +13,8 @@
           %th.b= t('.cost_per_person')
           %th= t('email')
           - if current_user.try(:admin?)
-            %td= 'user_id'
-            %td= 'user_email'
+            %td= t('.user_id')
+            %td= t('.user_email')
         - @trips.each do |trip|
           %tr
             %td= trip.trip_name
