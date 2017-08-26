@@ -1,6 +1,6 @@
 - if user_signed_in?
   - if @trips.present?
-    %table.table-striped.table-bordered
+    %table.table-striped.table-hover.table-condensed.table-bordered
       %tbody
         %tr
           %th= t('trip_name')
@@ -12,6 +12,9 @@
           %th= t('tanking_cost')
           %th.b= t('.cost_per_person')
           %th= t('email')
+          - if current_user.try(:admin?)
+            %td= 'user_id'
+            %td= 'user_email'
         - @trips.each do |trip|
           %tr
             %td= trip.trip_name
@@ -23,6 +26,9 @@
             %td= trip.tanking_cost
             %td= trip.cost_per_person
             %td= trip.email
+            - if current_user.try(:admin?)
+              %td= trip.user_id
+              %td= trip.user.try(:email)
   .container-fluid
     %br
     %br

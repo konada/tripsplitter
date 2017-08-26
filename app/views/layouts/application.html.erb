@@ -10,11 +10,17 @@
 
 <body>
 
-<div class="container-narrow">
+  <div class="container-narrow">
 
- <div class="navbar-header">
+   <div class="navbar-header">
     <span class="btn btn-info"><%= link_to "Tripsplitter", root_path %></span>
     <span>Tripsplitter: enjoy your common ride!</span>
+    <% if user_signed_in? %>
+    <b><%= "Welcome, #{current_user.email}!" %></b>
+    <% end %>
+    <% if current_user.try(:admin?) %>
+    <b><%= "You've got admin rights!" %></b>
+    <% end %>
     <span><%= render 'layouts/user_header' %></span>
   </div>
 

@@ -4,7 +4,11 @@ class TripsController < ApplicationController
   end
 
   def index
-    @trips = current_user.trips
+    if current_user.admin?
+      @trips = Trip.all
+    else
+      @trips = current_user.trips
+    end
   end
 
   def create
@@ -29,6 +33,6 @@ class TripsController < ApplicationController
       :email,
       :trip_name,
       :user_id
-    )
+      )
   end
 end
