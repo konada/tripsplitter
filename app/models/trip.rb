@@ -10,6 +10,10 @@ class Trip < ApplicationRecord
   before_save :calculate_cost_per_person
   after_save :send_email
 
+  def user
+    super || GuestUser.new
+  end
+
   private
 
   def send_email

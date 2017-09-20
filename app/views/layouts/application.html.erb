@@ -21,11 +21,10 @@
     <% if current_user.try(:admin?) %>
     <b><%= "You've got admin rights!" %></b>
     <% end %>
-    <span><%= render 'layouts/user_header' %></span>
+    <span><%= render "shared/#{current_user.class.name.underscore}_nav" %></span>
   </div>
-
   <hr />
-  <%= render partial: 'layouts/home' %>
+    <%= render "shared/#{current_user.class.name.underscore}_tips" %>
   <%= yield %>
 </div>
 </body>
