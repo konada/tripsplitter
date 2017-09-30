@@ -1,3 +1,11 @@
+- if @trip.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(@trip.errors.count, "error")
+      prohibited this trip from being saved:
+    %ul
+      - @trip.errors.full_messages.each do |message|
+        %li= message
 .container
   .form-group.form-horizontal
     = simple_form_for @trip, url: trips_path do |f|
@@ -22,6 +30,11 @@
       %label
       = t('.tanking_cost')
       = f.input :tanking_cost, input_html: { min: 1 }, label: false, as: :decimal
+      - if !(current_user.email == "guest - please register")
+        = t('.invoice')
+        %p
+        = f.file_field :invoice
+        %p
       %label
         = f.input :email, as: :string, input_html: { placeholder: t('.optional'), autofocus: true }
         = f.submit t('.submit'), class: 'btn btn-info calculate-btn', disabled: @trip.cost_per_person?
@@ -44,7 +57,7 @@
   .container
     = button_to "New Calculation", new_trip_path, class: 'btn btn-info calculate-btn', method: :get
     %br
-- if user_signed_in?
+- if !(current_user.email == "guest - please register")
   .container
     = button_to "Show all my trips", trips_path, class: 'btn btn-info calculate-btn', method: :get
 

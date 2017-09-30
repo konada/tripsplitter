@@ -12,6 +12,7 @@
           %th= t('tanking_cost')
           %th.b= t('.cost_per_person')
           %th= t('email')
+          %th= t('invoice')
           - if current_user.try(:admin?)
             %td= t('.user_id')
             %td= t('.user_email')
@@ -26,6 +27,11 @@
             %td= trip.tanking_cost
             %td= trip.cost_per_person
             %td= trip.email
+            -if trip.invoice?
+              %td
+                = link_to (fa_icon "download"), trip.try(:invoice).url, style: 'color:#FFFFFF;'
+            -else
+              %td= ""
             - if current_user.try(:admin?)
               %td= trip.user_id
               %td= trip.user.try(:email)

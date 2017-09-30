@@ -30,6 +30,7 @@ en:
       driver_free: " - driver not included in costs"
       trip_name: "Name your trip:"
       optional: "*optional"
+      invoice: "Attach fuel invoice or other document (optional)"
     index:
       cost_per_person: Cost per person
       user_id: User Id
