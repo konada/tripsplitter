@@ -1,6 +1,7 @@
 class TripsController < ApplicationController
   def new
     @trip = Trip.new
+    @trip.invoice = params[:file]
   end
 
   def index
@@ -32,7 +33,8 @@ class TripsController < ApplicationController
       :tanking_cost,
       :email,
       :trip_name,
-      :user_id
+      :user_id,
+      :invoice
       )
   end
 end
