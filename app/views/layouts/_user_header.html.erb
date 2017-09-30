@@ -3,6 +3,7 @@
     <span><%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => 'btn btn-large btn-danger'%></span>
   <% else %>
     <span><%= link_to "Sign in", new_user_session_path, :class => 'btn btn-large btn-info' %></span>
+    <br />
     <span><%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-large btn-info' %></span>
   <% end %>
   </span>
