@@ -11,7 +11,6 @@ class Trip < ApplicationRecord
   after_save :send_email
 
   mount_uploader :invoice, InvoiceUploader
-  validates_integrity_of :invoice
 
   def user
     super || GuestUser.new
