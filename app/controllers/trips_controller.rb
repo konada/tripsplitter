@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
-  expose :trip
-  expose :trips  { get_trips }
+  expose_decorated(:trip)
+  expose_decorated(:trips)  { get_trips }
 
   def new
     trip = Trip.new
