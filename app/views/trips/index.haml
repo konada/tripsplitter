@@ -1,5 +1,5 @@
 - if user_signed_in?
-  - if @trips.present?
+  - if trips.present?
     %table.table-striped.table-hover.table-condensed.table-bordered
       %tbody
         %tr
@@ -16,7 +16,7 @@
           - if current_user.try(:admin?)
             %td= t('.user_id')
             %td= t('.user_email')
-        - @trips.each do |trip|
+        - trips.each do |trip|
           %tr
             %td= trip.trip_name
             %td= trip.people_count

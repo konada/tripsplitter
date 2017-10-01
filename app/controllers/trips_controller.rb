@@ -1,19 +1,14 @@
 class TripsController < ApplicationController
-  def new
-    @trip = Trip.new
-    @trip.invoice = params[:file]
-  end
+  expose :trip
+  expose :trips  { get_trips }
 
-  def index
-    if current_user.admin?
-      @trips = Trip.all
-    else
-      @trips = current_user.trips
-    end
+  def new
+    trip = Trip.new
+    trip.invoice = params[:file]
   end
 
   def create
-    @trip = Trip.create(trip_params)
+    trip.save
     render :new
   end
 
@@ -21,6 +16,14 @@ class TripsController < ApplicationController
 
   def calculate_cost_per_person
     CostPerPersonCalculator.new(self).call
+  end
+
+  def get_trips
+    if current_user.admin?
+      collection = Trip.all
+    else
+      collection = current_user.trips
+    end
   end
 
   def trip_params

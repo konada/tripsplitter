@@ -1,14 +1,14 @@
-- if @trip.errors.any?
+- if trip.errors.any?
   #error_explanation
   .alert.alert-danger
     %h5
-      = pluralize(@trip.errors.count, "error")
+      = pluralize(trip.errors.count, "error")
       prohibited this trip from being saved:
     %ul
-      - @trip.errors.full_messages.each do |message|
+      - trip.errors.full_messages.each do |message|
         %li= message
 
-- if @trip.cost_per_person
+- if trip.cost_per_person
   .container
     .form-group.form-horizontal
       .card.card-inverse.card-success.text-xs-center
@@ -17,9 +17,9 @@
             %p
             %footer
               = t('.cost_per_person')
-              = number_with_precision(@trip.cost_per_person, precision: 2)
+              = number_with_precision(trip.cost_per_person, precision: 2)
 
-              - if @trip.driver_included?
+              - if trip.driver_included?
                 = t('.driver_participation')
               - else
                 = t('.driver_free')
@@ -31,7 +31,7 @@
 
 .container
   .form-group.form-horizontal
-    = simple_form_for @trip, url: trips_path do |f|
+    = simple_form_for trip, url: trips_path do |f|
       = f.hidden_field :user_id, value: current_user.try(:id)
       %label
       = f.input :trip_name, as: :string, input_html: { placeholder: t('.optional'), autofocus: true }
@@ -60,7 +60,7 @@
         %p
       %label
         = f.input :email, as: :string, input_html: { placeholder: t('.optional'), autofocus: true }
-        = f.submit t('.submit'), class: 'btn btn-info calculate-btn', disabled: @trip.cost_per_person?
+        = f.submit t('.submit'), class: 'btn btn-info calculate-btn', disabled: trip.cost_per_person?
 
 - if !(current_user.email == "guest - please register")
   .container
