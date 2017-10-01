@@ -1,11 +1,34 @@
 - if @trip.errors.any?
   #error_explanation
-    %h2
+  .alert.alert-danger
+    %h5
       = pluralize(@trip.errors.count, "error")
       prohibited this trip from being saved:
     %ul
       - @trip.errors.full_messages.each do |message|
         %li= message
+
+- if @trip.cost_per_person
+  .container
+    .form-group.form-horizontal
+      .card.card-inverse.card-success.text-xs-center
+        .card-block
+          %blockquote.card-blockquote
+            %p
+            %footer
+              = t('.cost_per_person')
+              = number_with_precision(@trip.cost_per_person, precision: 2)
+
+              - if @trip.driver_included?
+                = t('.driver_participation')
+              - else
+                = t('.driver_free')
+  .container
+    = button_to "New Calculation", new_trip_path, class: 'btn btn-info calculate-btn', method: :get
+    %br
+      - if !(current_user.email == "guest - please register")
+        = button_to "Show all my trips", trips_path, class: 'btn btn-info calculate-btn', method: :get
+
 .container
   .form-group.form-horizontal
     = simple_form_for @trip, url: trips_path do |f|
@@ -39,24 +62,6 @@
         = f.input :email, as: :string, input_html: { placeholder: t('.optional'), autofocus: true }
         = f.submit t('.submit'), class: 'btn btn-info calculate-btn', disabled: @trip.cost_per_person?
 
-- if @trip.cost_per_person
-  .container
-    .form-group.form-horizontal
-      .card.card-inverse.card-success.text-xs-center
-        .card-block
-          %blockquote.card-blockquote
-            %p
-            %footer
-              = t('.cost_per_person')
-              = number_with_precision(@trip.cost_per_person, precision: 2)
-
-              - if @trip.driver_included?
-                = t('.driver_participation')
-              - else
-                = t('.driver_free')
-  .container
-    = button_to "New Calculation", new_trip_path, class: 'btn btn-info calculate-btn', method: :get
-    %br
 - if !(current_user.email == "guest - please register")
   .container
     = button_to "Show all my trips", trips_path, class: 'btn btn-info calculate-btn', method: :get
