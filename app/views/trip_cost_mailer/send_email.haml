@@ -11,24 +11,24 @@
           %p
         .panel-body
           = I18n.t('.people_count')
-        = trip.people_count
+        = @trip.people_count
         %p
-        - if trip.driver_included?
+        - if @trip.driver_included?
           = I18n.t('driver_participation')
         - else
           = I18n.t('driver_free')
         %p
           = I18n.t('.trip_distance')
-        = trip.trip_distance
+        = @trip.trip_distance
         %p
           = I18n.t('.fuel_cost')
-        = trip.fuel_cost
+        = @trip.fuel_cost
         %p
           = I18n.t('.avg_consumption')
-        = trip.avg_consumption
+        = @trip.avg_consumption
         %p
           = I18n.t('.tanking_cost')
-        = trip.tanking_cost
+        = @trip.tanking_cost
         %p
           = I18n.t('.cost_per_person')
         = number_with_precision(@trip.cost_per_person, precision: 2)
