@@ -1,10 +1,7 @@
 class TripDecorator < Draper::Decorator
   delegate_all
 
-    def created_at
-      helpers.content_tag :span, class: 'time' do
-        trip.created_at.strftime("%d/%m/%Y - %H:%M")
-      end
-    end
-
+  def created_at
+    h.content_tag(:time, object.created_at.strftime("%d/%m/%Y - %H:%M:%S"))
+  end
 end
