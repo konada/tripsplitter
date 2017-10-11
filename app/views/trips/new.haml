@@ -26,7 +26,7 @@
   .container
     = button_to "New Calculation", new_trip_path, class: 'btn btn-info calculate-btn', method: :get
     %br
-      - if !(current_user.email == "guest - please register")
+      - if user_signed_in?
         = button_to "Show all my trips", trips_path, class: 'btn btn-info calculate-btn', method: :get
 
 .container
@@ -53,7 +53,7 @@
       %label
       = t('.tanking_cost')
       = f.input :tanking_cost, input_html: { min: 1 }, label: false, as: :decimal
-      - if !(current_user.email == "guest - please register")
+      - if user_signed_in?
         = t('.invoice')
         %p
         = f.file_field :invoice
@@ -62,7 +62,7 @@
         = f.input :email, as: :string, input_html: { placeholder: t('.optional'), autofocus: true }
         = f.submit t('.submit'), class: 'btn btn-info calculate-btn', disabled: trip.cost_per_person?
 
-- if !(current_user.email == "guest - please register")
+- if user_signed_in?
   .container
     = button_to "Show all my trips", trips_path, class: 'btn btn-info calculate-btn', method: :get
 

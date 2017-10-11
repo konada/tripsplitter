@@ -12,10 +12,6 @@ class Trip < ApplicationRecord
 
   mount_uploader :invoice, InvoiceUploader
 
-  def user
-    super || GuestUser.new
-  end
-
   private
 
   def send_email

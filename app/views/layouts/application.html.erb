@@ -21,10 +21,18 @@
     <% if current_user.try(:admin?) %>
     <b><%= "You've got admin rights!" %></b>
     <% end %>
-    <span><%= render "shared/#{current_user.class.name.underscore}_nav" %></span>
-  </div>
-  <hr />
-    <%= render "shared/#{current_user.class.name.underscore}_tips" %>
+    <% if user_signed_in? %>
+      <span><%= render "layouts/user_nav" %></span>
+    </div>
+    <hr />
+      <%= render "layouts/user_tips" %>
+    <% else %>
+      <b><%= "Welcome, Guest!" %></b>
+      <span><%= render "layouts/guest_user_nav.html" %></span>
+    </div>
+    <hr />
+      <%= render "layouts/guest_user_tips.html" %>
+    <% end %>
   <%= yield %>
 </div>
 </body>
