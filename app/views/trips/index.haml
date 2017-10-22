@@ -24,10 +24,10 @@
             %td= trip.people_count
             %td= trip.driver_included
             %td= trip.trip_distance
-            %td= trip.fuel_cost
+            %td= trip.formatted_amount(:fuel_cost)
             %td= trip.avg_consumption
-            %td= trip.tanking_cost
-            %td= trip.cost_per_person
+            %td= trip.formatted_amount(:tanking_cost)
+            %td= trip.formatted_amount(:cost_per_person)
             %td= trip.email
             -if trip.invoice?
               %td
@@ -37,7 +37,7 @@
             - if current_user.try(:admin?)
               %td= trip.user_id
               %td= trip.user.try(:email)
-              %td= trip.created_at
+              %td= trip.formatted_date(:created_at)
   .container-fluid
     %br
     %br

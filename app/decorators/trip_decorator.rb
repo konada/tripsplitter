@@ -1,7 +1,12 @@
 class TripDecorator < Draper::Decorator
+  include ActionView::Helpers::NumberHelper
   delegate_all
 
-  def created_at
-    h.content_tag(:time, object.created_at.strftime("%d/%m/%Y - %H:%M:%S"))
+  def formatted_date(attribute_name)
+    send(attribute_name).strftime("%d/%m/%Y - %H:%M:%S")
+  end
+
+  def formatted_amount(attribute_name)
+    number_with_precision(send(attribute_name), precision: 2)
   end
 end
