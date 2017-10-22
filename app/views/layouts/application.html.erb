@@ -9,31 +9,6 @@
 </head>
 
 <body>
-
-  <div class="container-narrow">
-
-   <div class="navbar-header">
-    <span class="btn btn-info"><%= link_to "Tripsplitter", root_path %></span>
-    <span>Tripsplitter: enjoy your common ride!</span>
-    <% if user_signed_in? %>
-    <b><%= "Welcome, #{current_user.email}!" %></b>
-    <% end %>
-    <% if current_user.try(:admin?) %>
-    <b><%= "You've got admin rights!" %></b>
-    <% end %>
-    <% if user_signed_in? %>
-      <span><%= render "layouts/user_nav" %></span>
-    </div>
-    <hr />
-      <%= render "layouts/user_tips" %>
-    <% else %>
-      <b><%= "Welcome, Guest!" %></b>
-      <span><%= render "layouts/guest_user_nav.html" %></span>
-    </div>
-    <hr />
-      <%= render "layouts/guest_user_tips.html" %>
-    <% end %>
   <%= yield %>
-</div>
 </body>
 </html>
