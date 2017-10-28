@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %meta(content="text/html; charset=UTF-8" http-equiv="Content-Type")/
+    %title Tripsplitter
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .container-narrow
+      .navbar-header
+        %span.btn.btn-info= link_to t('.tripsplitter'), root_path
+        %span= t('.motto')
+        %b= t('.welcome', email: current_user.email)
+        - if current_user.try(:admin?)
+          %b= t('.admin_rights')
+        %span#session_options.container-narrow.float-right
+          %span= link_to t('.sign_out'), destroy_user_session_path, method: :delete, class: 'btn btn-large btn-danger'
+        %hr/
+        = yield

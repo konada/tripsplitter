@@ -1,0 +1,28 @@
+!!!
+%html
+  %head
+    %meta(content='text/html; charset=UTF-8' http-equiv='Content-Type')/
+    %title Tripsplitter
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .container-narrow
+      .navbar-header
+        %span.btn.btn-info= link_to 'Tripsplitter', root_path
+        %span= t('.motto')
+        %b= t('.welcome_guest')
+        %span#session_options.container-narrow.float-right
+          %span= link_to t('.sign_in'), new_user_session_path, class: 'btn btn-large btn-info'
+          %span= link_to t('.sign_up'), new_user_registration_path, class: 'btn btn-large btn-info'
+        #jmbTrn.jumbotron
+          %h1= t('.welcome_guest')
+          %p.lead= t('.warning')
+          .row-fluid
+            .span6
+              = link_to t('.sign_in'), new_user_session_path, class: 'btn btn-success'
+            %p
+            .span6
+              = link_to t('.sign_up'), new_user_registration_path, class: 'btn btn-success'
+        %hr/
+        = yield
