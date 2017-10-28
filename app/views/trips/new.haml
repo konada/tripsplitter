@@ -24,10 +24,10 @@
               - else
                 = t('.driver_free')
   .container
-    = button_to "New Calculation", new_trip_path, class: 'btn btn-info calculate-btn', method: :get
+    = button_to t('.new_calculation'), new_trip_path, class: 'btn btn-info calculate-btn', method: :get
     %br
       - if user_signed_in?
-        = button_to "Show all my trips", trips_path, class: 'btn btn-info calculate-btn', method: :get
+        = button_to t('.show_all_trips'), trips_path, class: 'btn btn-info calculate-btn', method: :get
 
 .container
   .form-group.form-horizontal
@@ -64,5 +64,5 @@
 
 - if user_signed_in?
   .container
-    = button_to "Show all my trips", trips_path, class: 'btn btn-info calculate-btn', method: :get
+    = button_to t('.show_all_trips'), trips_path, class: 'btn btn-info calculate-btn', method: :get
 

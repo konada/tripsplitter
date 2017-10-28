@@ -1,5 +1,5 @@
 en:
-  subject: Thank you for using Tripsplitter!
+  subject: 'Thank you for using Tripsplitter!'
   people_count: 'No of People '
   driver_included: 'Is Driver paying? '
   trip_distance: 'Trip distance in km '
@@ -7,31 +7,48 @@ en:
   avg_consumption: 'Average consumption per 100km '
   tanking_cost: 'Fuel invoice total '
   cost_per_person: 'Total cost of trip for one person is: '
-  submit: Calculate cost
-  notice: Cost was successfully calculated.
-  email: email address
-  driver_participation: "Driver included in costs"
-  driver_free: "Driver not included in costs"
-  trip_name: "Trip name"
+  submit: 'Calculate cost'
+  notice: 'Cost was successfully calculated.'
+  email: 'email address'
+  driver_participation: 'Driver included in costs'
+  driver_free: 'Driver not included in costs'
+  trip_name: 'Trip name'
+  layouts:
+    guest_user:
+      tripsplitter: 'Tripsplitter'
+      welcome_guest: 'Welcome, Guest!'
+      sign_in: 'Sign in'
+      sign_up: 'Sign up'
+      warning: 'You must sign in or sign up before you can access saving and listing your trips.'
+      motto: 'Tripsplitter: enjoy your common ride!'
+    user:
+      tripsplitter: 'Tripsplitter'
+      welcome: "Welcome, %{email}!"
+      admin_rights: "You've got admin rights!"
+      motto: 'Tripsplitter: enjoy your common ride!'
+      sign_out: 'Sign out'
   trips:
     new:
-      people_count: No of People
-      driver_included: Is Driver paying?
-      trip_distance: Trip distance in km
-      fuel_cost: Fuel cost (unit)
-      avg_consumption: Average consumption per 100km
-      tanking_cost: Fuel invoice total
-      cost_per_person: Total cost of trip for one person is
-      submit: Calculate cost
-      notice: Cost was successfully calculated.
-      email: email
-      subject: Thank you for using Tripsplitter!
-      driver_participation: " - with driver costs included"
-      driver_free: " - driver not included in costs"
-      trip_name: "Name your trip:"
-      optional: "*optional"
-      invoice: "Attach fuel invoice or other document (optional)"
+      people_count: 'No of People'
+      driver_included: 'Is Driver paying?'
+      trip_distance: 'Trip distance in km'
+      fuel_cost: 'Fuel cost (unit)'
+      avg_consumption: 'Average consumption per 100km'
+      tanking_cost: 'Fuel invoice total'
+      cost_per_person: 'Total cost of trip for one person is'
+      submit: 'Calculate cost'
+      notice: 'Cost was successfully calculated.'
+      email: 'email'
+      subject: 'Thank you for using Tripsplitter!'
+      driver_participation: ' - with driver costs included'
+      driver_free: ' - driver not included in costs'
+      trip_name: 'Name your trip:'
+      optional: '*optional'
+      invoice: 'Attach fuel invoice or other document (optional)'
+      show_all_trips: 'Show all my trips'
+      new_calculation: 'New Calculation'
     index:
-      cost_per_person: Cost per person
-      user_id: User Id
-      user_email: Email
+      cost_per_person: 'Cost per person'
+      user_id: 'User Id'
+      user_email: 'Email'
+      new_calculation: 'New Calculation'
