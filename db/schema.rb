@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170930170856) do
+ActiveRecord::Schema.define(version: 20171105151225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "avatars", force: :cascade do |t|
+    t.integer  "source_id",          null: false
+    t.string   "source_type"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["source_id"], name: "index_avatars_on_source_id", using: :btree
+  end
 
   create_table "trips", force: :cascade do |t|
     t.integer  "people_count",    default: 1,    null: false

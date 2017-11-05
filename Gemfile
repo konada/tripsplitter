@@ -6,6 +6,7 @@ source 'https://rubygems.org'
 # end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'add_avatar', github: 'konada/add_avatar'
 gem 'rails', '~> 5.0.1'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'rails-assets-tether', '>= 1.0.0'
